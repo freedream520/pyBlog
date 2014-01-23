@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block main %}
+
+<div class="article">
+	<h3>{{article.title}}</h3>
+	<div class="info">
+		<p>
+			分类: 	<a href="/category/{{ article.category.name}}">
+						{{ article.category.name}}
+					</a>
+				|
+			标签:	{% for tag in article.tags_list %}
+					<a href="#">&nbsp;{{ tag }}&nbsp;</a>
+					{% endfor %}
+				|
+			发布时间:{{ article.issue_time }}
+		</p>
+	</div>
+
+	<p>{{ article.content }}</p>
+</div>
+
+ <a href='http://me.alipay.com/llinger'> <img src='https://img.alipay.com/sys/personalprod/style/mc/btn-index.png' /> </a>
+{% endblock%}

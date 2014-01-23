@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block main %}
+{% for art in articles%}
+					<div class="article">
+						<strong><h3>{{ art.title }}</h3></strong>
+							<div class="info">
+								<p>
+									分类: 	<a href="/category/{{ art.category.name}}">
+												{{ art.category.name}}
+											</a>
+										|
+									标签:	{% for tag in art.tags_list %}
+											<a href="/tag/{{ tag }}">&nbsp;{{ tag }}&nbsp;</a>
+											{% endfor %}
+										|
+									发布时间:{{ art.issue_time }}
+								</p>
+							</div>
+						<p>{{ art.content }}</p>
+						<div class="pull-right">
+							<a class="btn btn-default" href="/detail/{{ art.alias }}">查看全文&raquo;</a>
+						</div>
+						<div class="clearfix"></div>
+						<h6 class="under_line"></h6>
+					</div>
+{% endfor %}
+
+
+					<center>
+							<ul class="pagination">
+								{% if articles.has_previous %}
+									<li><a href="?page={{articles.number|add:-1}}">&laquo;</a></li>
+								{% else %}
+									<li class="disabled"><a href="javascrpt:void(0);">&laquo;</a></li>
+								{% endif %}
+								{% for i in page_range %}
+									{% if articles.number == i%}
+										<li class="active"><a href="javascrpt:void(0);">{{i}}</a></li>
+									{% else %}
+										<li><a href="?page={{i}}">{{i}}</a></li>
+									{% endif %}
+								{% endfor %}
+								{% if articles.has_next %}
+									<li><a href="?page={{articles.number|add:1}}">&raquo;</a></li>
+								{% else %}
+									<li class="disabled"><a href="javascrpt:void(0);">&raquo;</a></li>
+								{% endif %}
+							</ul>
+					</center>
+{% endblock %}

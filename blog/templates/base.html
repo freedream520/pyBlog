@@ -1,0 +1,102 @@
+<html>
+<head>
+	<title>Llinger的技术博客</title>
+	<link href="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://v3.bootcss.com/examples/offcanvas/offcanvas.css"	rel="stylesheet">
+	<link href="/static/css.css" rel="stylesheet">
+	<link rel="shortcut icon" href="/static/icon.png">
+</head>
+<body>
+	<!-- 导航条开始 -->
+	<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Llinger</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/">首页</a></li>
+					<li><a href="#">吐槽BUG</a></li>
+				</ul>
+				<form class="navbar-form navbar-right" role="form" action="/" method="post">
+		            <div class="form-group">
+		              <input type="text" placeholder="Search..." class="form-control" size="25">
+		            </div>
+		            &nbsp;
+            		<button type="submit" class="btn btn-success">搜索&raquo;</button>
+         		</form>
+			</div>
+		</div>
+	</div>
+	<!-- 导航条结束 -->
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-right">
+			<div class="col-xs-12 col-sm-9">
+				<p class="pull-right visible-xs">
+					<button type="button" class="btn btn-primary btn-xs"
+						data-toggle="offcanvas">Toggle nav</button>
+				</p>
+				<div class="jumbotron">
+					<h1>林格<small>技术博客</small></h1>
+					<p>　　欢迎访问Llinger的技术博客, 有问题请<a href="">拍砖</a> :)</p>
+				</div>
+				<!--文章列表开始-->
+				<div class="main">
+					{% block main%}{% endblock %}
+				</div>
+				<!--文章列表结束-->
+			</div>
+			<!-- 右栏开始 -->
+			<div class="col-xs-6 col-sm-3 " id="" role="">
+				<div>
+					<h4>关于博主</h4>
+					<h6 class="under_line"></h6>
+					<p>一只java出身，<br />偶尔捣腾捣腾python的程序猿！</p>
+					<p>Email：howlig#gmail.com</p>
+					<p>QQ：531546(注明来自博客)</p>
+					<p>博客源码：<a href="https://github.com/howlig" title="howlig@github" target="_blank">@GitHub</a></p><br />
+				</div>
+
+				<div>
+					<h4>标签</h4>
+					<h6 class="under_line"></h6>
+					<ul class="nav nav-pills">
+						{% for tag in tags %}
+							<li><a href="/tag/{{tag.name}}" title="">{{tag.name}}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div>
+					<h4>最新文章</h4>
+					<h6 class="under_line"></h6>
+					<ul class="links" id="links">
+						{% for article in new_list%}
+						<li><a rel="bookmark" href="/detail/{{article.alias}}" title="{{article.title}}">{{article.title}}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div>
+					<h4>热门文章</h4>
+					<h6 class="under_line"></h6>
+					<ul class="links" id="links">
+						{% for article in hot_list%}
+						<li><a rel="bookmark" href="/detail/{{article.alias}}" title="{{article.title}}">{{article.title}}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<!-- 右栏结束 -->
+		</div>
+		<hr>
+	</div>
+	<center>
+		<div class="container">
+		    <p>版权所有 &copy; 2013-2014 <a href="http://lLinger.cn" title="林格·李の技术博客">lLinger.cn</a></p>   
+		    <p>全站基于 Django1.6开发</p>
+		</div>
+	</center>
+	<script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
