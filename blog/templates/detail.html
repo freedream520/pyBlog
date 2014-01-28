@@ -2,6 +2,13 @@
 
 {% block main %}
 
+<div id="zhengwen">
+	<ol class="breadcrumb">
+		<li><a href="/">首页</a></li>
+		<li><a href="/category/{{ article.category.name}}">{{ article.category.name}}</a></li>
+		<li>正文</li>
+	</ol>
+</div>
 <div class="article">
 	<h3>{{article.title}}</h3>
 	<div class="info">
@@ -14,12 +21,23 @@
 					<a href="#">&nbsp;{{ tag }}&nbsp;</a>
 					{% endfor %}
 				|
-			发布时间:{{ article.issue_time }}
+			发布时间:{{ article.issue_time|date:'Y-m-d H:m' }}&nbsp;|&nbsp;点击量:{{ article.hits }}
 		</p>
 	</div>
 
-	<p>{{ article.content }}</p>
+	<p>{{ article.content|safe }}</p>
+	<br />
+	<br />
+	==========EOF==========>>
+	<a href='http://me.alipay.com/llinger'><button type="button" class="btn btn-info">小额赞助 :)</button></a>
+	<br />
 </div>
-
- <a href='http://me.alipay.com/llinger'> <img src='https://img.alipay.com/sys/personalprod/style/mc/btn-index.png' /> </a>
 {% endblock%}
+
+<blockquote><p>sdf
+sdf
+sdf</p>
+</blockquote>
+<pre><code>public static void main(String[] args){
+    System.out.print("hello world");
+}</code></pre>

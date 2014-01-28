@@ -56,6 +56,8 @@ class DetailViews(BaseView,DetailView):
 	queryset = Article.objects.all()
 
 	def get(self,request,*args,**kwargs):
+		ip = request.META['REMOTE_ADDR']
+		print ip;
 		alias = self.kwargs.get('slug')
 		article = self.queryset.get(alias=alias)
 		article.hits+=1
@@ -84,4 +86,4 @@ class TagListView(IndexView):
 	
 	def get_context_data(self,*args,**kwargs):
 		return super(TagListView, self).get_context_data(**kwargs)
-	
+

@@ -1,18 +1,42 @@
-body{font-family: 'Helvetica Neue', Arial, "Hiragino Sans GB", sans-serif}
-.article p {line-height:30px;}
-.under_line  {border-bottom: 1px solid #e8e8e8;padding-top: 1px;}
+html{
+  font-family:"微软雅黑",Tahoma,Verdana,"宋体";
+  font-size:14px;}
+body {
+  background-color: #fff;
+}
+.article p {
+  line-height:30px;
+}
+.under_line  {
+  border-bottom: 1px solid #e8e8e8;
+  padding-top: 1px;}
 
 .info{
 	color:#999
 }
 .links {
-    padding-left: 0;
+  padding-left: 0;
 }
-#links li {
-    list-style: none;
-    padding-bottom: 5px;
-    width:100%; white-space:nowrap; word-break:keep-all; overflow:hidden; text-overflow:ellipsis;
+.links li {
+  list-style: none;
+  padding-bottom: 5px;
+  width:100%; 
+  white-space:nowrap; 
+  word-break:keep-all; 
+  overflow:hidden; 
+  text-overflow:ellipsis;
 }
 .container {
-    max-width: 1024px;
+  max-width: 1024px;
+}
+pre{
+  margin:5px auto;
+  width:90%;
+}
+.article .title{
+  color:#000;
+  text-decoration:none;
+}
+.article .title:hover{
+  color:#FF9933;
 }

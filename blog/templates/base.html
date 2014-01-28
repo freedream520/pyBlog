@@ -18,12 +18,12 @@
 					<li class="active"><a href="/">首页</a></li>
 					<li><a href="#">吐槽BUG</a></li>
 				</ul>
-				<form class="navbar-form navbar-right" role="form" action="/" method="post">
+				<form class="navbar-form navbar-right" role="form" action="#" method="post">
 		            <div class="form-group">
 		              <input type="text" placeholder="Search..." class="form-control" size="25">
 		            </div>
 		            &nbsp;
-            		<button type="submit" class="btn btn-success">搜索&raquo;</button>
+            		<button type="button" class="btn btn-success">搜索&raquo;</button>
          		</form>
 			</div>
 		</div>
@@ -78,7 +78,7 @@
 				<div>
 					<h4>热门文章</h4>
 					<h6 class="under_line"></h6>
-					<ul class="links" id="links">
+					<ul class="links">
 						{% for article in hot_list%}
 						<li><a rel="bookmark" href="/detail/{{article.alias}}" title="{{article.title}}">{{article.title}}</a></li>
 						{% endfor %}

@@ -13,13 +13,18 @@ class Tag(models.Model):
 #暂时未加入用户模块	
 class User(models.Model):
 	name = models.CharField(max_length=64, verbose_name=u'用户名')
+	def __unicode__(self):
+		return self.name
 
 class Category(models.Model):
 	name = models.CharField(max_length=64, verbose_name=u'名称')
 	is_nav = models.BooleanField(default=False, verbose_name=u'是否在导航显示')
 	turn = models.IntegerField(default=0, verbose_name=u'排序')
 	status = models.IntegerField(default=1, verbose_name=u'状态')
+	def __unicode__(self):
+		return self.name
 
+	
 class Article(models.Model):
 	title = models.CharField(max_length=128, verbose_name=u'标题')
 	alias = models.CharField(max_length=128, verbose_name=u'别名')
@@ -49,7 +54,8 @@ class Article(models.Model):
 	@classmethod
 	def get_hot_list(self,num):
 		return self.objects.values('title','alias').filter(status=1,is_recommend=True).order_by('-hits')[:num]
-
+	def __unicode__(self):
+		return self.title
 
 
 
